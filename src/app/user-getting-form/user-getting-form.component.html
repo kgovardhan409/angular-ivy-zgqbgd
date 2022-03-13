@@ -1,5 +1,5 @@
 <form class="container my-3" #registration="ngForm"
-  action="/" >
+  (ngSubmit)="registrationFormSubmit()">
 <div class="mb-3">
      <label for="" class="form-label">Name {{!registration.submitted || name.valid}}</label>
      <input type="text" class="form-control" 

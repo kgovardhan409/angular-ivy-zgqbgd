@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
+import { DataService } from '../data/data.service';
 import { RegistrationModel } from '../registration-model'
 @Component({
   selector: 'app-user-getting-form',
@@ -24,7 +25,7 @@ date: '10/05/1995'
 
 registrationObj: RegistrationModel = {...this.OrgianlaregistrationObj}
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     console.log()
@@ -33,6 +34,10 @@ registrationObj: RegistrationModel = {...this.OrgianlaregistrationObj}
 
   onBlur(name: NgModel){
     console.log(name.value)
+  }
+
+  registrationFormSubmit(){
+      this.dataService.postFormData(this.registrationObj).subscribe(dat => console.log(dat))
   }
 
 }
