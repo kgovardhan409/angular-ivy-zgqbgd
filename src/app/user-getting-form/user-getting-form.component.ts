@@ -22,6 +22,7 @@ date: '10/05/1995'
 
 
 }
+errorResponse: string;
 
 registrationObj: RegistrationModel = {...this.OrgianlaregistrationObj}
 
@@ -31,13 +32,19 @@ registrationObj: RegistrationModel = {...this.OrgianlaregistrationObj}
     console.log()
   }
 
-
   onBlur(name: NgModel){
     console.log(name.value)
   }
 
   registrationFormSubmit(){
-      this.dataService.postFormData(this.registrationObj).subscribe(dat => console.log(dat))
+      this.dataService.postFormData(this.registrationObj).subscribe(
+        result => {
+          console.log(result.text)
+        },
+        error => {
+          this.errorResponse = error.error.ErrorMessage;
+        }
+      )
   }
 
 }
