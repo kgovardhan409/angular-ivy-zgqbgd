@@ -1,0 +1,4 @@
+.field-error,.field-error.form-control:focus{
+  border: 1px solid red;
+  box-shadow:0 0 0 0.25rem rgb(250 0 0 / 25%)
+}
